@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
         <div class="container">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -47,14 +47,16 @@
     <section class="d-flex">
         <div class="container d-flex">
             <div class="row text-center">
-                {{#each this}}
-                <div class="card" style="width: 18rem;">
-                    <img src="{{img}}" class="card-img-top" alt="No-image">
+                {{#each data}}
+                <div class="card border-warning" style="width: 18rem;">
+                    <img src="{{this.urlToImage}}" class="card-img-top mt-1" alt="No-image">
                     <div class="card-body">
-                        <h5 class="card-title">{{title}}</h5>
-                        <p class="card-text text-justify">{{description}}</p>
+                        <h5 class="card-title">{{this.title}}</h5>
+                        <p class="card-text text-justify">{{this.description}}</p>
                         <a href="#" class="btn btn-primary mb-2">See More</a>
-                        <p class="card-text"><small class="text-muted">Added {{date}}</small></p>
+                        <p class="card-text"><small class="text-muted">Added {{this.publishedAt}}</small></p>
+                        <p class="card-text"><small class="text-warning float-right">Wrotten By {{this.author}}</small>
+                        </p>
                     </div>
                     {{/each}}
                 </div>
